@@ -3,10 +3,18 @@ window.onload = function(){
     $(document).keyup(function(event) { 
       pop();
     });
+    
+    try {
+        document.getElementById("point").innerHTML = point;
+    }
+    catch(err) {
+        var point = getCookie("0");
+    }
+    
     var img = document.getElementById("popcat1");
     //var point = document.getElementById("point");
     //var score = 0;
-    var point = getCookie("0");
+    //var point = getCookie("0");
     //var audio = new Audio("pop.mp3");
 
     img.addEventListener('mousedown', function (){
@@ -22,7 +30,7 @@ window.onload = function(){
     function increaseScore(){
         point = Number(point) + 1;
         setCookie("0", point);
-        document.getElementById("point").innerHTML = point
+        document.getElementById("point").innerHTML = point;
     }
 
     function setCookie(cpoint, cvalue) {
